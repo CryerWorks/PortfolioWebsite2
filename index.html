@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <img src="logo.png" alt="Organization Logo" class="logo">
+        <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+        <nav class="nav-menu-container">
+            <ul class="nav-menu">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#lectures">Lectures and Seminars</a></li>
+                <li><a href="#media">Video and Podcast</a></li>
+                <li><a href="#support">Support Us</a></li>
+                <li><a href="#defense">EU-Defense</a></li>
+            </ul>
+        </nav>
+        <a href="#donate" class="donate-btn">Donate</a>
+    </header>
+    <main class="main-content">
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-text">
+                            <h2>Latest Policy Report</h2>
+                            <p>Comprehensive analysis of European defense strategies and emerging geopolitical trends.</p>
+                            <a href="#" class="btn">Read More</a>
+                        </div>
+                        <img src="policy_report.png" alt="Policy Report" class="carousel-image">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-text">
+                            <h2>Upcoming Webinar</h2>
+                            <p>Join our expert panel discussing the future of European security and defense cooperation.</p>
+                            <a href="#" class="btn">Register Now</a>
+                        </div>
+                        <img src="webinar.png" alt="Webinar" class="carousel-image">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-text">
+                            <h2>Latest Publication</h2>
+                            <p>Exploring strategic autonomy and defense innovation in the European context.</p>
+                            <a href="#" class="btn">Download</a>
+                        </div>
+                        <img src="research_publication.png" alt="Research" class="carousel-image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-controls">
+                <button class="carousel-btn prev-btn">&#10094;</button>
+                <button class="carousel-btn next-btn">&#10095;</button>
+            </div>
+
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+    </section>
+
+        <section class="mission-statement">
+            <h2>Our Mission</h2>
+            <div class="mission-content">
+                <div class="mission-item">
+                    <img src="mission_image1.png" alt="Community Outreach">
+                    <h3>Community Engagement</h3>
+                    <p>We strive to foster a better understanding of European security cooperation by fostering collaboration and understanding with all layers of society</p>
+                </div>
+                <div class="mission-item">
+                    <img src="mission_image2.png" alt="Policy Innovation">
+                    <h3>Inspiring Policy Innovation</h3>
+                    <p>Driving impactful policies to address emerging challenges and opportunities in the security and defense landscape of Europe</p>
+                </div>
+                <div class="mission-item">
+                    <img src="mission_image3.png" alt="Sustainable Development">
+                    <h3>Security Development</h3>
+                    <p>Promoting cooperative practices that contribute to the long-term security of the North Atlantic Treary Organization and its members.</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <div class="featured-sections">
+            <section class="section">
+                <h2>Latest News</h2>
+                <div class="section-item">
+                    <h3>New Policy Report Released</h3>
+                    <p>Insights on recent geopolitical developments...</p>
+                </div>
+                <div class="section-item">
+                    <h3>Conference Announcement</h3>
+                    <p>Upcoming international forum on defense...</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Recent Publications</h2>
+                <div class="section-item">
+                    <h3>Research Paper: EU Strategic Autonomy</h3>
+                    <p>Comprehensive analysis of current trends...</p>
+                </div>
+                <div class="section-item">
+                    <h3>Policy Brief: Defense Cooperation</h3>
+                    <p>Examining multinational defense initiatives...</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Upcoming Seminars</h2>
+                <div class="section-item">
+                    <h3>Webinar: Future of European Defense</h3>
+                    <p>Date: June 15, 2024 | 14:00 CET</p>
+                </div>
+                <div class="section-item">
+                    <h3>Expert Panel: Security Challenges</h3>
+                    <p>Date: July 2, 2024 | 16:00 CET</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('carousel');
+            const dotsContainer = document.getElementById('carousel-dots');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            
+            let currentSlide = 0;
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const totalSlides = slides.length;
+
+            // Create dot indicators
+            slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = document.querySelectorAll('.dot');
+
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dot indicators
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+
+            // Event listeners for navigation
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Optional: Auto-advance slides every 5 seconds
+            setInterval(nextSlide, 5000);
+        });
+    </script>
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Contact Us Section -->
+        <div class="footer-section contact-info">
+            <h3>Contact Us</h3>
+            <p>Email: atlant@atlant.dk</p>
+            <p>Phone: +45 3059 1944</p>
+            <p>
+                <br> Frederiksberg Slot <br> Roskildevej 28 A <br> 2000 Frederiksberg
+            </p>
+        </div>
+        <!-- Related Organizations Section -->
+        <div class="footer-section related-orgs">
+            <h3>Related Organizations</h3>
+            <ul>
+                <li><a href="https://www.ata.org" target="_blank">ATA - Atlantic Treaty Association</a></li>
+                <li><a href="https://www.yata.dk" target="_blank">YATA Denmark</a></li>
+                <li><a href="https://www.yata-international.org" target="_blank">YATA International</a></li>
+            </ul>
+        </div>
+        <!-- Social Media Section -->
+        <div class="footer-section social-media">
+            <h3>Social Media</h3>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenuContainer = document.querySelector('.nav-menu-container');
+
+    // Toggle the menu when the hamburger button is clicked
+    menuToggle.addEventListener('click', (event) => {
+        navMenuContainer.classList.toggle('active');
+        event.stopPropagation(); // Prevent click from propagating to document
+    });
+
+    // Close the menu when clicking anywhere outside the menu
+    document.addEventListener('click', (event) => {
+        if (!navMenuContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+            navMenuContainer.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>
