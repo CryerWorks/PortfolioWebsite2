@@ -22,11 +22,53 @@
             </ul>
         </nav>
         <a href="#donate" class="donate-btn">Donate</a>
+        <button class="language-switch" aria-label="Switch Language">
+            <img src="denmark-flag.png" alt="Switch to Danish" class="language-icon denmark-flag">
+            <img src="uk-flag.png" alt="Switch to English" class="language-icon uk-flag hidden">
+        </button>
     </header>
     <main class="main-content">
-    <section class="hero-section">
-            <img src="HERO SPLASH_Edit.png" alt="New Research Publication" class="hero-image">
-            <div class="hero-floating-box">Out Now!</div>
+        <section class="hero-combined">
+            <div class="hero-left">
+                <div class="welcome-text">
+                    <h1>Welcome to the Danish Atlantic Council</h1>
+                    <p>
+                        We are dedicated towards educating people about the invaluable strategic work 
+                        carried out within the Denmark-NATO partnership, fostering understanding and cooperation 
+                        for global as well as national security. <br>
+                    </p>
+                </div>
+                <div class="core-values">
+                    <h2>Our Core Goals and Values</h2>
+                    <ul>
+                        <li>Foster understanding of the Denmark-NATO strategic partnership.</li>
+                        <li>Promote European security through collaborative security coordination.</li>
+                        <li>Educate on the value of cooperative defense strategies.</li>
+                        <li>Encourage innovation in security policy and international cooperation.</li>
+                    </ul>
+                </div>
+                <div class="interested">
+                    <h2>Engage With Us</h2>
+                    <ul>
+                        <li>Attend our seminars and lectures across the country.</li>
+                        <li>Participate in expert panels with leading security experts.</li>
+                        <li>Collaborate in shaping the future of European collective defense.</li>
+                    </ul>
+                    <a href="#engage" class="engage-btn">Learn More</a>
+                </div>
+                <div class="newsletter-box">
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <form action="#" method="post">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit" class="subscribe-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="HERO SPLASH_Edit.png" alt="New Research Publication" class="hero-image">
+                <div class="hero-floating-box">Out Now!</div>
+            </div>
+        </section>
     </section>
     <section class="carousel-section">
         <div class="carousel-container">
@@ -92,8 +134,6 @@
                 </div>
             </div>
         </section>
-        
-
         <div class="featured-sections">
             <section class="section">
                 <h2>Latest News</h2>
@@ -185,6 +225,7 @@
 
             // Optional: Auto-advance slides every 5 seconds
             setInterval(nextSlide, 5000);
+            
         });
     </script>
 <footer class="footer">
@@ -235,6 +276,280 @@
             navMenuContainer.classList.remove('active');
         }
     });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const languageSwitch = document.querySelector('.language-switch');
+    const denmarkFlag = document.querySelector('.denmark-flag');
+    const ukFlag = document.querySelector('.uk-flag');
+
+    const translations = {
+        en: {
+            header: {
+                donate: "Donate",
+                nav: [
+                    "About Us",
+                    "News",
+                    "Publications",
+                    "Lectures and Seminars",
+                    "Video and Podcast",
+                    "Support Us",
+                    "EU-Defense"
+                ]
+            },
+            hero: {
+                welcome: "Welcome to the Danish Atlantic Council",
+                description: "We are dedicated to educating people about the invaluable strategic work carried out within the Denmark-NATO partnership, fostering understanding and cooperation for global as well as national security.",
+                goals: "Our Core Goals and Values",
+                goalsList: [
+                    "Foster understanding of the Denmark-NATO strategic partnership.",
+                    "Promote European security through collaborative security coordination.",
+                    "Educate on the value of cooperative defense strategies.",
+                    "Encourage innovation in security policy and international cooperation."
+                ],
+                engage: "Engage With Us",
+                engageList: [
+                    "Attend our seminars and lectures across the country.",
+                    "Participate in expert panels with leading security experts.",
+                    "Collaborate in shaping the future of European collective defense."
+                ],
+                subscribe: "Subscribe to Our Newsletter",
+                buttons: {
+                learnMore: "Learn More",
+                subscribe: "Subscribe",
+                outNow: "Out Now!"
+            },
+            placeholders: {
+                email: "Enter your email"
+            }
+            },
+            carousel: [
+                {
+                    title: "Latest Policy Report",
+                    description: "Comprehensive analysis of European defense strategies and emerging geopolitical trends.",
+                    button: "Read More"
+                },
+                {
+                    title: "Upcoming Webinar",
+                    description: "Join our expert panel discussing the future of European security and defense cooperation.",
+                    button: "Register Now"
+                },
+                {
+                    title: "Latest Publication",
+                    description: "Exploring strategic autonomy and defense innovation in the European context.",
+                    button: "Download"
+                }
+            ],
+            mission: {
+                title: "Our Mission",
+                items: [
+                    {
+                        title: "Community Engagement",
+                        description: "We strive to foster a better understanding of European security cooperation by fostering collaboration and understanding with all layers of society."
+                    },
+                    {
+                        title: "Inspiring Policy Innovation",
+                        description: "Driving impactful policies to address emerging challenges and opportunities in the security and defense landscape of Europe."
+                    },
+                    {
+                        title: "Security Development",
+                        description: "Promoting cooperative practices that contribute to the long-term security of the North Atlantic Treaty Organization and its members."
+                    }
+                ]
+            },
+            featured: {
+                latestNews: "Latest News",
+                publications: "Recent Publications",
+                upcomingSeminars: "Upcoming Seminars"
+            },
+            footer: {
+                contactUs: "Contact Us",
+                email: "Email: atlant@atlant.dk",
+                phone: "Phone: +45 3059 1944",
+                address: "Frederiksberg Slot, Roskildevej 28 A, 2000 Frederiksberg",
+                relatedOrgs: "Related Organizations",
+                socialMedia: "Social Media"
+            }
+        },
+        da: {
+            header: {
+                donate: "Donér",
+                nav: [
+                    "Om Os",
+                    "Nyheder",
+                    "Publikationer",
+                    "Foredrag og Seminarer",
+                    "Video og Podcast",
+                    "Støt Os",
+                    "EU-Forsvar"
+                ]
+            },
+            hero: {
+                welcome: "Velkommen til Atlantsammenslutningen",
+                description: "Vi arbejder for at uddanne mennesker om det uvurderlige strategiske arbejde udført inden for Danmark-NATO-partnerskabet, og fremmer forståelse og samarbejde for både global og national sikkerhed.",
+                goals: "Vores Kerneværdier og Mål",
+                goalsList: [
+                    "Fremme forståelsen af Danmark-NATO-partnerskabet.",
+                    "Styrke europæisk sikkerhed gennem samarbejde om sikkerhedskoordinering.",
+                    "Uddanne om værdien af samarbejdende forsvarsstrategier.",
+                    "Opfordre til innovation i sikkerhedspolitik og internationalt samarbejde."
+                ],
+                engage: "Følg Os",
+                engageList: [
+                    "Deltag i vores seminarer og foredrag over hele landet.",
+                    "Vær med i ekspertpaneler med førende sikkerhedseksperter.",
+                    "Bidrag til at forme fremtiden for europæisk kollektivt forsvar."
+                ],
+                subscribe: "Abonnér på Vores Nyhedsbrev",
+                buttons: {
+                learnMore: "Læs Mere",
+                subscribe: "Abonnér",
+                outNow: "Ude Nu!"
+            },
+            placeholders: {
+                email: "Indtast din e-mail"
+            }
+            },
+            carousel: [
+                {
+                    title: "Seneste Politikanalyse",
+                    description: "En omfattende analyse af europæiske forsvarsstrategier og nye geopolitiske tendenser.",
+                    button: "Læs Mere"
+                },
+                {
+                    title: "Kommende Webinar",
+                    description: "Deltag i vores ekspertpanel, der diskuterer fremtiden for europæisk sikkerhed og forsvarssamarbejde.",
+                    button: "Tilmeld Dig"
+                },
+                {
+                    title: "Seneste Publikation",
+                    description: "En undersøgelse af strategisk autonomi og innovation inden for europæisk forsvar.",
+                    button: "Download"
+                }
+            ],
+            mission: {
+                title: "Vores Mission",
+                items: [
+                    {
+                        title: "Samarbejde med Samfundet",
+                        description: "Vi arbejder for en bedre forståelse af europæisk sikkerhed gennem samarbejde og forståelse på alle samfundsniveauer."
+                    },
+                    {
+                        title: "Inspiration til Politisk Innovation",
+                        description: "Vi skaber effektive politikker for at imødekomme udfordringer og muligheder inden for Europas sikkerheds- og forsvarslandskab."
+                    },
+                    {
+                        title: "Sikkerhedsudvikling",
+                        description: "Vi fremmer samarbejdspraksis, der bidrager til langsigtet sikkerhed for NATO og dets medlemmer."
+                    }
+                ]
+            },
+            featured: {
+                latestNews: "Seneste Nyheder",
+                publications: "Seneste Publikationer",
+                upcomingSeminars: "Kommende Seminarer"
+            },
+            footer: {
+                contactUs: "Kontakt Os",
+                email: "E-mail: atlant@atlant.dk",
+                phone: "Telefon: +45 3059 1944",
+                address: "Frederiksberg Slot, Roskildevej 28 A, 2000 Frederiksberg",
+                relatedOrgs: "Relaterede Organisationer",
+                socialMedia: "Sociale Medier"
+            }
+        }
+    };
+
+    let currentLanguage = 'en';
+
+    const updateLanguage = () => {
+        const lang = translations[currentLanguage];
+
+        // Header
+        document.querySelector('.donate-btn').textContent = lang.header.donate;
+        document.querySelectorAll('.nav-menu li a').forEach((link, index) => {
+            link.textContent = lang.header.nav[index];
+        });
+
+        // Hero Section
+        document.querySelector('.welcome-text h1').textContent = lang.hero.welcome;
+        document.querySelector('.welcome-text p').textContent = lang.hero.description;
+        document.querySelector('.core-values h2').textContent = lang.hero.goals;
+        document.querySelectorAll('.core-values li').forEach((item, index) => {
+            item.textContent = lang.hero.goalsList[index];
+        });
+        document.querySelector('.interested h2').textContent = lang.hero.engage;
+        document.querySelectorAll('.interested li').forEach((item, index) => {
+            item.textContent = lang.hero.engageList[index];
+        });
+        document.querySelector('.newsletter-box h2').textContent = lang.hero.subscribe;
+
+        // Update buttons
+        document.querySelector('.engage-btn').textContent = lang.hero.buttons.learnMore;
+        document.querySelector('.subscribe-btn').textContent = lang.hero.buttons.subscribe;
+        document.querySelector('.hero-floating-box').textContent = lang.hero.buttons.outNow;
+
+         // Update placeholder in the newsletter input
+        document.querySelector('.newsletter-box input[name="email"]').setAttribute('placeholder', lang.hero.placeholders.email);
+
+        // Carousel Section
+        document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
+            slide.querySelector('.carousel-text h2').textContent = lang.carousel[index].title;
+            slide.querySelector('.carousel-text p').textContent = lang.carousel[index].description;
+            slide.querySelector('.carousel-text .btn').textContent = lang.carousel[index].button;
+        });
+
+        // Mission Section
+        document.querySelector('.mission-statement h2').textContent = lang.mission.title;
+        document.querySelectorAll('.mission-item').forEach((item, index) => {
+            item.querySelector('h3').textContent = lang.mission.items[index].title;
+            item.querySelector('p').textContent = lang.mission.items[index].description;
+        });
+
+        // Featured Sections
+        document.querySelector('.section:nth-child(1) h2').textContent = lang.featured.latestNews;
+        document.querySelector('.section:nth-child(2) h2').textContent = lang.featured.publications;
+        document.querySelector('.section:nth-child(3) h2').textContent = lang.featured.upcomingSeminars;
+
+        // Footer
+        document.querySelector('.contact-info h3').textContent = lang.footer.contactUs;
+        document.querySelector('.contact-info p:nth-child(2)').textContent = lang.footer.email;
+        document.querySelector('.contact-info p:nth-child(3)').textContent = lang.footer.phone;
+        document.querySelector('.contact-info p:nth-child(4)').textContent = lang.footer.address;
+        document.querySelector('.related-orgs h3').textContent = lang.footer.relatedOrgs;
+        document.querySelector('.social-media h3').textContent = lang.footer.socialMedia;
+    };
+
+
+    languageSwitch.addEventListener('click', () => {
+        currentLanguage = currentLanguage === 'en' ? 'da' : 'en';
+        updateLanguage();
+    });
+
+    updateLanguage(); // Initialize
+});
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const languageSwitch = document.querySelector('.language-switch');
+    const denmarkFlag = document.querySelector('.denmark-flag');
+    const ukFlag = document.querySelector('.uk-flag');
+
+    // Default language is English (UK flag hidden)
+    ukFlag.classList.add('hidden');
+    denmarkFlag.classList.remove('hidden');
+
+    languageSwitch.addEventListener('click', () => {
+        // Toggle flag visibility
+        if (denmarkFlag.classList.contains('hidden')) {
+            denmarkFlag.classList.remove('hidden');
+            ukFlag.classList.add('hidden');
+        } else {
+            denmarkFlag.classList.add('hidden');
+            ukFlag.classList.remove('hidden');
+        }
+    });
+});
 </script>
 </body>
 </html>
